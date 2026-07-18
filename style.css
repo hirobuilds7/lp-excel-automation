@@ -422,7 +422,7 @@ a { color: inherit; }
   font-size: 0.9rem;
 }
 .site-footer nav a:hover { color: #fff; }
-.copyright { font-size: 0.78rem; color: rgba(255, 255, 255, 0.5); }
+.copyright { font-size: 0.78rem; color: rgba(255, 255, 255, 0.75); }
 
 /* ---------- reveal animation ----------
    既定は表示＝JS無効環境でもコンテンツが欠けない。
