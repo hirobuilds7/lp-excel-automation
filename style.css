@@ -469,3 +469,313 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 @media (min-width: 1024px) {
   .honest { grid-template-columns: 1fr 1fr; }
 }
+/* ============================================
+   hero v2 — 濃紺反転・数字主役
+   基＝Claude Design 1c（design-ref/hero-1c-claude-design-2026-08-12.html）
+   既存 style.css の後に読み込む追加シート（.hero2 名前空間＝旧heroと衝突しない）
+   ============================================ */
+
+.hero2 {
+  --hero2-bg: #0c4a6e;
+  --hero2-line: rgba(125, 211, 252, 0.2);
+  --hero2-text-soft: #bae6fd;
+  --hero2-text-dim: #8fb8d4;
+  --hero2-accent: #7dd3fc;
+  /* CTAは白との比約5:1のAA方針を維持（style.css と同じ #c2410c）＝Design案の #f97316 は 2.8:1 でAA不合格 */
+  --hero2-cta: #c2410c;
+  --hero2-cta-hover: #9a3412;
+  --hero2-orange: #f97316; /* 装飾（星マーク・チャート強調）専用＝本文には使わん */
+  position: relative;
+  background: var(--hero2-bg);
+  color: #fff;
+  overflow: hidden;
+  padding: 108px 20px 40px; /* 上=固定ヘッダー72px+36px */
+}
+
+.hero2-inner {
+  position: relative;
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero2-glow {
+  position: absolute;
+  top: -160px;
+  right: -120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.5), rgba(2, 132, 199, 0) 68%);
+  pointer-events: none;
+}
+
+/* ---------- 左＝コピー ---------- */
+.hero2-copy { position: relative; display: flex; flex-direction: column; align-items: flex-start; }
+
+.hero2-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(125, 211, 252, 0.45);
+  border-radius: var(--radius-pill);
+  padding: 5px 14px;
+  margin-bottom: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--hero2-accent);
+  letter-spacing: 0.05em;
+}
+
+.hero2-catch {
+  font-size: clamp(2.05rem, 8.8vw, 2.35rem);
+  font-weight: 900;
+  line-height: 1.38;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 16px;
+}
+.hero2-accent { color: var(--hero2-accent); }
+
+.hero2-sub {
+  font-size: 0.92rem;
+  line-height: 1.85;
+  color: var(--hero2-text-soft);
+  margin: 0 0 26px;
+  max-width: 29em;
+}
+
+.hero2-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 12px;
+}
+.hero2-btn {
+  display: inline-block;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  padding: 16px 26px;
+  font-size: 1.02rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+.hero2-btn-primary {
+  background: var(--hero2-cta);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(194, 65, 12, 0.32);
+}
+.hero2-btn-primary:hover { background: var(--hero2-cta-hover); transform: translateY(-2px); }
+.hero2-btn-ghost {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  border: 1.5px solid rgba(125, 211, 252, 0.42);
+}
+.hero2-btn-ghost:hover { border-color: var(--hero2-accent); transform: translateY(-2px); }
+
+.hero2-note {
+  font-size: 0.72rem;
+  color: #9ec5df; /* #8fb8d4 は濃紺地で4.49:1＝AAにギリ届かんため1段明るく */
+  margin: 0 0 4px;
+}
+
+/* ---------- 統計行 ---------- */
+.hero2-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin: 24px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--hero2-line);
+}
+.hero2-stat dt { margin: 0; }
+.hero2-stat dd {
+  margin: 2px 0 0;
+  font-size: 0.72rem;
+  color: var(--hero2-text-soft);
+  letter-spacing: 0.02em;
+}
+.hero2-stat-num {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+.hero2-stat-sup {
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: var(--hero2-accent);
+  margin-left: 2px;
+}
+.hero2-stat-review {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(125, 211, 252, 0.25);
+  border-radius: 12px;
+  padding: 11px 14px;
+}
+.hero2-star { font-size: 0.85rem; font-weight: 900; color: #fff; letter-spacing: 0.02em; white-space: nowrap; }
+.hero2-star-mark { color: var(--hero2-orange); } /* 星マークだけ装飾色（数字はAA確保の白） */
+.hero2-review-label { font-size: 0.82rem; font-weight: 700; color: #fff; white-space: nowrap; }
+.hero2-stat-review dd { color: var(--hero2-text-soft); }
+
+/* ---------- 右＝シートのモック ---------- */
+.hero2-visual { position: relative; }
+
+.hero2-mock {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 18px 38px rgba(3, 32, 52, 0.35);
+  overflow: hidden;
+  color: var(--text-main);
+}
+.hero2-mock-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 14px;
+  background: #f0f8fd;
+  border-bottom: 1px solid #e2eef7;
+}
+.hero2-dot { width: 8px; height: 8px; border-radius: 50%; }
+.hero2-dot-o { background: #f97316; }
+.hero2-dot-b { background: #7dd3fc; }
+.hero2-dot-g { background: #cbd8e2; }
+.hero2-mock-title { margin-left: 6px; font-size: 0.72rem; font-weight: 700; color: var(--text-sub); letter-spacing: 0.02em; }
+
+.hero2-mock-grid {
+  display: grid;
+  grid-template-columns: 34px 1fr auto auto;
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+.hero2-mock-grid > span { padding: 9px 12px; border-bottom: 1px solid #f0f6fa; }
+.hero2-th { background: #f7fbfe; color: var(--text-sub); font-weight: 700; border-bottom: 1px solid #e8f1f7 !important; }
+.hero2-r { text-align: right; }
+.hero2-rowno { background: #f7fbfe; color: #9fb2c0; text-align: center; }
+.hero2-up { color: var(--blue-main); }
+.hero2-down { color: var(--cta); }
+.hero2-total { background: #e0f2fe; color: var(--blue-deep); font-weight: 700; border-bottom: none !important; }
+.hero2-total-no { text-align: center; } /* :first-of-type はspan全部が対象で効かんかった＝専用クラス */
+
+.hero2-mock-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 64px;
+  padding: 16px 14px;
+  border-top: 1px solid #eef4f8;
+}
+.hero2-mock-chart > span { flex: 1; background: #bae6fd; border-radius: 3px 3px 0 0; }
+.hero2-bar-mid { background: #7dd3fc !important; }
+.hero2-bar-strong { background: var(--blue-main) !important; }
+.hero2-bar-accent { background: var(--hero2-orange) !important; } /* 装飾＝チャートの強調バー */
+
+.hero2-float {
+  position: absolute;
+  left: -8px;
+  bottom: -18px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px 18px 12px 12px;
+  box-shadow: 0 18px 38px rgba(3, 32, 52, 0.32);
+}
+.hero2-float-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--cta);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.hero2-float-text { display: flex; flex-direction: column; line-height: 1.5; }
+.hero2-float-text strong { font-size: 0.82rem; font-weight: 900; color: var(--blue-deep); }
+.hero2-float-text small { font-size: 0.7rem; color: var(--text-sub); }
+
+/* ---------- PC ---------- */
+@media (min-width: 900px) {
+  .hero2 { padding: 160px 32px 116px; } /* ヘッダー72px+88px / 下92px+モック浮き分 */
+
+  .hero2-inner {
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 64px;
+  }
+
+  .hero2-glow {
+    top: -200px;
+    left: 36%;
+    right: auto;
+    width: 600px;
+    height: 600px;
+  }
+
+  .hero2-eyebrow { font-size: 0.78rem; padding: 6px 17px; margin-bottom: 28px; letter-spacing: 0.06em; }
+
+  .hero2-catch { font-size: clamp(2.6rem, 3.9vw, 3.55rem); line-height: 1.3; margin-bottom: 24px; }
+
+  .hero2-sub { font-size: 1.02rem; line-height: 1.9; margin-bottom: 36px; }
+
+  .hero2-cta { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 16px; max-width: none; margin-bottom: 14px; }
+  .hero2-btn { font-size: 1.08rem; }
+  .hero2-btn-primary { padding: 18px 38px; letter-spacing: 0.01em; box-shadow: 0 12px 26px rgba(194, 65, 12, 0.35); }
+  .hero2-btn-ghost { padding: 16.5px 32px; }
+
+  .hero2-note { font-size: 0.78rem; }
+
+  .hero2-stats {
+    flex-direction: row;
+    flex-wrap: wrap; /* 900〜1160px幅で左カラムが狭い時は折り返す＝白モックの下に潜らせない */
+    align-items: stretch;
+    row-gap: 14px;
+    column-gap: 0;
+    max-width: 720px;
+    margin-top: 36px;
+    padding-top: 30px;
+  }
+  .hero2-stat { flex: 0 0 auto; padding-right: 24px; }
+  .hero2-stat + .hero2-stat { padding-left: 24px; border-left: 1px solid var(--hero2-line); }
+  .hero2-stat-num, .hero2-stat-sup { font-size: 2.1rem; white-space: nowrap; }
+  .hero2-stat dd { font-size: 0.78rem; }
+  .hero2-stat-review {
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    justify-content: center;
+  }
+
+  .hero2-mock { border-radius: 16px; box-shadow: 0 26px 56px rgba(3, 32, 52, 0.4); }
+  .hero2-mock-bar { padding: 13px 18px; gap: 8px; }
+  .hero2-dot { width: 9px; height: 9px; }
+  .hero2-mock-title { font-size: 0.78rem; margin-left: 8px; }
+  .hero2-mock-grid { font-size: 0.78rem; grid-template-columns: 40px 1fr auto auto; }
+  .hero2-mock-chart { height: 64px; padding: 20px 18px; }
+
+  .hero2-float { left: -24px; bottom: -22px; padding: 14px 22px 14px 14px; }
+  .hero2-float-icon { width: 42px; height: 42px; border-radius: 12px; font-size: 1rem; }
+  .hero2-float-text strong { font-size: 0.9rem; }
+  .hero2-float-text small { font-size: 0.75rem; }
+}
+
+/* 動きを抑える設定の人にはhoverの浮きも切る（style.cssの方針に合わせる） */
+@media (prefers-reduced-motion: reduce) {
+  .hero2-btn { transition: none; }
+  .hero2-btn:hover { transform: none; }
+}

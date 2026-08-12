@@ -65,27 +65,59 @@
 
   <main id="top">
 
-    <!-- 1. ファーストビュー -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="hero-copy">
-          <h1 class="hero-catch" id="heroCatch" aria-label="毎月のExcel作業、ボタン1個にします。">毎月のExcel作業、<br>ボタン1個にします。</h1>
-          <p class="hero-sub">売上の集計、台帳への転記、月次レポートづくり。毎月くり返すパソコン作業を、自動で回る仕組みに変えます（GAS・Python・AI対応）。<br class="pc-only">「本当にできる人か」は、言葉より実物で確かめてください。</p>
-          <div class="hero-cta">
-            <a href="#works" class="btn btn-primary btn-large">実物デモを触ってみる</a>
-            <a href="https://coconala.com/services/4269314" class="btn btn-ghost btn-large" target="_blank" rel="noopener">相談してみる（無料）</a>
+    <!-- 1. ファーストビュー（2026-08-12 v2＝濃紺反転・数字主役／Claude Design 1cを基に再構築） -->
+    <section class="hero2">
+      <div class="hero2-inner">
+        <div class="hero2-glow" aria-hidden="true"></div>
+        <div class="hero2-copy">
+          <span class="hero2-eyebrow">個人事業・小さな会社むけの受託自動化</span>
+          <!-- 1文字フェードインはv2で廃止（id="heroCatch"を外すとscript.jsが素通りする）＝アニメは「統一された一瞬」方針 -->
+          <h1 class="hero2-catch">毎月のExcel作業、<br><span class="hero2-accent">ボタン1個にします。</span></h1>
+          <p class="hero2-sub">毎週・毎月くり返しているコピペや転記、関数の貼り直し。その手順をそのままプログラムにして、ボタン1個で終わるようにします。「本当にできる人か」は、言葉より実物で確かめてください。</p>
+          <div class="hero2-cta">
+            <a href="https://coconala.com/services/4269314" class="hero2-btn hero2-btn-primary" target="_blank" rel="noopener">無料で相談してみる</a>
+            <a href="#works" class="hero2-btn hero2-btn-ghost">実物デモを見る</a>
           </div>
-          <p class="cta-note">※ご相談の窓口はココナラ（会員登録無料）です。ボタンからサービスページに移動します。</p>
-          <ul class="hero-badges">
-            <li>納品案件レビュー <strong>★5.0</strong>（2件）</li>
-            <li>デモ・構築記録 <strong>3本</strong> 公開中</li>
-            <li>やり取りは <strong>テキスト完結</strong></li>
-          </ul>
+          <p class="hero2-note">※ご相談の窓口はココナラ（会員登録無料）です。ボタンからサービスページに移動します。</p>
+          <dl class="hero2-stats">
+            <div class="hero2-stat">
+              <dt class="hero2-stat-num">デモ<span class="hero2-stat-sup">3本</span></dt>
+              <dd>実物と構築記録を公開中</dd>
+            </div>
+            <div class="hero2-stat">
+              <dt class="hero2-stat-num">最短3日</dt>
+              <dd>相談から納品まで<!-- 根拠＝ココナラ出品4269314「お届け日数 3日（予定）」2026-08-12実測 --></dd>
+            </div>
+            <div class="hero2-stat hero2-stat-review">
+              <dt><span class="hero2-star"><span class="hero2-star-mark">★</span> 5.0</span> <span class="hero2-review-label">納品レビュー（2件）</span></dt>
+              <dd>実際の納品案件でいただいた評価</dd>
+            </div>
+          </dl>
         </div>
-        <figure class="hero-visual">
-          <img src="assets/sales-report.png" alt="売上集計＋月次レポート自動化アプリのダッシュボード画面" width="1152" height="648" loading="eager" fetchpriority="high">
-          <figcaption>公開中のデモ「売上集計＋月次レポート自動化」</figcaption>
-        </figure>
+        <div class="hero2-visual" aria-hidden="true">
+          <div class="hero2-mock">
+            <div class="hero2-mock-bar">
+              <span class="hero2-dot hero2-dot-o"></span>
+              <span class="hero2-dot hero2-dot-b"></span>
+              <span class="hero2-dot hero2-dot-g"></span>
+              <span class="hero2-mock-title">月次レポート.xlsm</span>
+            </div>
+            <div class="hero2-mock-grid">
+              <span class="hero2-th"></span><span class="hero2-th">店舗</span><span class="hero2-th hero2-r">売上</span><span class="hero2-th hero2-r">前月比</span>
+              <span class="hero2-rowno">2</span><span>渋谷店</span><span class="hero2-r">1,240</span><span class="hero2-r hero2-up">+8.2%</span>
+              <span class="hero2-rowno">3</span><span>本店</span><span class="hero2-r">2,105</span><span class="hero2-r hero2-up">+14.0%</span>
+              <span class="hero2-rowno">4</span><span>通販</span><span class="hero2-r">980</span><span class="hero2-r hero2-down">-2.1%</span>
+              <span class="hero2-total hero2-total-no">5</span><span class="hero2-total">合計</span><span class="hero2-total hero2-r">4,325</span><span class="hero2-total hero2-r">+9.6%</span>
+            </div>
+            <div class="hero2-mock-chart">
+              <span style="height:48%"></span><span style="height:70%" class="hero2-bar-mid"></span><span style="height:58%"></span><span style="height:86%" class="hero2-bar-strong"></span><span style="height:100%" class="hero2-bar-accent"></span>
+            </div>
+          </div>
+          <div class="hero2-float">
+            <span class="hero2-float-icon">▶</span>
+            <span class="hero2-float-text"><strong>レポート作成</strong><small>ボタン1個で完成</small></span>
+          </div>
+        </div>
       </div>
     </section>
 
