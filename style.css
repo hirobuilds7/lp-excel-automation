@@ -662,7 +662,7 @@ html.js .reveal.is-visible { opacity: 1; transform: translateY(0); }
 .hero2-th { background: #f7fbfe; color: var(--text-sub); font-weight: 700; border-bottom: 1px solid #e8f1f7 !important; }
 .hero2-r { text-align: right; }
 .hero2-rowno { background: #f7fbfe; color: #9fb2c0; text-align: center; }
-.hero2-up { color: var(--blue-main); }
+.hero2-up { color: #0369a1; } /* --blue-main(#0284c7)は白地4.10:1でAA未達＝5.93:1の1段濃い青に */
 .hero2-down { color: var(--cta); }
 .hero2-total { background: #e0f2fe; color: var(--blue-deep); font-weight: 700; border-bottom: none !important; }
 .hero2-total-no { text-align: center; } /* :first-of-type はspan全部が対象で効かんかった＝専用クラス */
