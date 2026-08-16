@@ -3,3 +3,6 @@ verify-*.png
 index-v2.html
 hero-v2.css
 design-ref/
+dist/
+.wrangler/
+verify-*.json

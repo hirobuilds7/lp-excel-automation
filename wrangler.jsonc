@@ -1,0 +1,10 @@
+{
+	// LP1（Excel自動化LP）の Cloudflare Workers デプロイ設定（正本: memory/project-cloudflare.md）
+	// 公開は deploy-cf.ps1 経由のみ＝dist/ に公開ファイルだけ転写してからデプロイする。
+	// リポ直下を assets.directory にするのは禁止（gitignore済みの内部ファイルが同居しとるため）。
+	"name": "lp-excel-automation",
+	"compatibility_date": "2026-08-16",
+	"assets": {
+		"directory": "./dist"
+	}
+}
