@@ -6,3 +6,6 @@ design-ref/
 dist/
 .wrangler/
 verify-*.json
+
+# 2026-08-25 追加
+*.bak-*

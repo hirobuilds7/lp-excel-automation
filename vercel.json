@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://lp-excel-automation.hirobuilds7.workers.dev/:path*",
+      "permanent": true
+    }
+  ]
+}

@@ -8,15 +8,15 @@
   <meta property="og:title" content="毎月のExcel作業、ボタン1個にします。| HiroBuilds">
   <meta property="og:description" content="集計・転記・月次レポートのくり返し作業をGAS・Python・AIで自動化。実際に触れるデモを公開中。">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lp-excel-automation.vercel.app/">
-  <meta property="og:image" content="https://lp-excel-automation.vercel.app/assets/sales-report.png">
-  <link rel="canonical" href="https://lp-excel-automation.vercel.app/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230a1836'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='bold' text-anchor='middle' fill='%23f97316' font-family='sans-serif'%3EH%3C/text%3E%3C/svg%3E">
+  <meta property="og:url" content="https://lp-excel-automation.hirobuilds7.workers.dev/">
+  <meta property="og:image" content="https://lp-excel-automation.hirobuilds7.workers.dev/assets/shots/ui-01-sales-dashboard.png">
+  <link rel="canonical" href="https://lp-excel-automation.hirobuilds7.workers.dev/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2308090a'/%3E%3Ctext x='16' y='22' font-size='16' font-weight='bold' text-anchor='middle' fill='%238b7cff' font-family='sans-serif'%3EH%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- フォントCSSは非レンダーブロッキングで読み込み（読み込み完了後にmedia切替） -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=optional" rel="stylesheet"></noscript>
+  <!-- ★Linear型＝サンセリフの中太（Linear実測 weight 510）。900は使わん -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600&display=optional" rel="stylesheet"></noscript>
   <link rel="stylesheet" href="style.css">
   <script>document.documentElement.classList.add("js");</script>
   <script type="application/ld+json">
@@ -59,167 +59,169 @@
         <a href="#flow">依頼の流れ</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="https://coconala.com/services/4269314" class="btn btn-primary btn-header" target="_blank" rel="noopener">相談してみる</a>
+      <a href="https://coconala.com/services/4269314" class="btn btn-light btn-header" target="_blank" rel="noopener">相談してみる</a>
     </div>
   </header>
 
   <main id="top">
 
-    <!-- 1. ファーストビュー（2026-08-12 v2＝濃紺反転・数字主役／Claude Design 1cを基に再構築） -->
-    <section class="hero2">
-      <div class="hero2-inner">
-        <div class="hero2-glow" aria-hidden="true"></div>
-        <div class="hero2-copy">
-          <span class="hero2-eyebrow">個人事業・小さな会社むけの受託自動化</span>
-          <!-- 1文字フェードインはv2で廃止（id="heroCatch"を外すとscript.jsが素通りする）＝アニメは「統一された一瞬」方針 -->
-          <h1 class="hero2-catch">毎月のExcel作業、<br><span class="hero2-accent">ボタン1個にします。</span></h1>
-          <p class="hero2-sub">毎週・毎月くり返しているコピペや転記、関数の貼り直し。その手順をそのままプログラムにして、ボタン1個で終わるようにします。「本当にできる人か」は、言葉より実物で確かめてください。</p>
-          <div class="hero2-cta">
-            <a href="https://coconala.com/services/4269314" class="hero2-btn hero2-btn-primary" target="_blank" rel="noopener">無料で相談してみる</a>
-            <a href="#works" class="hero2-btn hero2-btn-ghost">実物デモを見る</a>
-          </div>
-          <p class="hero2-note">※ご相談の窓口はココナラ（会員登録無料）です。ボタンからサービスページに移動します。</p>
-          <dl class="hero2-stats">
-            <div class="hero2-stat">
-              <dt class="hero2-stat-num">デモ<span class="hero2-stat-sup">3本</span></dt>
-              <dd>実物と構築記録を公開中</dd>
-            </div>
-            <div class="hero2-stat">
-              <dt class="hero2-stat-num">最短3日</dt>
-              <dd>相談から納品まで<!-- 根拠＝ココナラ出品4269314「お届け日数 3日（予定）」2026-08-12実測 --></dd>
-            </div>
-            <div class="hero2-stat hero2-stat-review">
-              <dt><span class="hero2-star"><span class="hero2-star-mark">★</span> 5.0</span> <span class="hero2-review-label">納品レビュー（2件）</span></dt>
-              <dd>実際の納品案件でいただいた評価</dd>
-            </div>
-          </dl>
+    <!-- 1. FV＝巨大見出し＋製品UIを実寸でドカン（Linear型の核） -->
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="hero-eyebrow">個人事業・小さな会社むけの受託自動化</p>
+        <h1 class="hero-catch">毎月のExcel作業、<br><span class="accent">ボタン1個にします。</span></h1>
+        <p class="hero-sub">毎週・毎月くり返しているコピペや転記、関数の貼り直し。その手順をそのままプログラムにして、ボタン1個で終わるようにします。「本当にできる人か」は、言葉より実物で確かめてください。</p>
+        <div class="hero-cta">
+          <a href="https://coconala.com/services/4269314" class="btn btn-light btn-large" target="_blank" rel="noopener">無料で相談してみる</a>
+          <a href="#works" class="btn btn-ghost btn-large">実物デモを見る</a>
         </div>
-        <div class="hero2-visual" aria-hidden="true">
-          <div class="hero2-mock">
-            <div class="hero2-mock-bar">
-              <span class="hero2-dot hero2-dot-o"></span>
-              <span class="hero2-dot hero2-dot-b"></span>
-              <span class="hero2-dot hero2-dot-g"></span>
-              <span class="hero2-mock-title">月次レポート.xlsm</span>
-            </div>
-            <div class="hero2-mock-grid">
-              <span class="hero2-th"></span><span class="hero2-th">店舗</span><span class="hero2-th hero2-r">売上</span><span class="hero2-th hero2-r">前月比</span>
-              <span class="hero2-rowno">2</span><span>渋谷店</span><span class="hero2-r">1,240</span><span class="hero2-r hero2-up">+8.2%</span>
-              <span class="hero2-rowno">3</span><span>本店</span><span class="hero2-r">2,105</span><span class="hero2-r hero2-up">+14.0%</span>
-              <span class="hero2-rowno">4</span><span>通販</span><span class="hero2-r">980</span><span class="hero2-r hero2-down">-2.1%</span>
-              <span class="hero2-total hero2-total-no">5</span><span class="hero2-total">合計</span><span class="hero2-total hero2-r">4,325</span><span class="hero2-total hero2-r">+9.6%</span>
-            </div>
-            <div class="hero2-mock-chart">
-              <span style="height:48%"></span><span style="height:70%" class="hero2-bar-mid"></span><span style="height:58%"></span><span style="height:86%" class="hero2-bar-strong"></span><span style="height:100%" class="hero2-bar-accent"></span>
-            </div>
-          </div>
-          <div class="hero2-float">
-            <span class="hero2-float-icon">▶</span>
-            <span class="hero2-float-text"><strong>レポート作成</strong><small>ボタン1個で完成</small></span>
-          </div>
-        </div>
+        <p class="hero-note">※ご相談の窓口はココナラ（会員登録無料）です。ボタンからサービスページに移動します。</p>
       </div>
+      <figure class="hero-shot">
+        <div class="frame">
+          <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><em>売上レポート自動化 — ダッシュボード</em></div>
+          <img src="assets/shots/ui-01-sales-dashboard.webp" alt="売上レポート自動化ツールのダッシュボード画面。総売上・前月比・月別推移グラフ・チャネル別シェアが1画面に並んでいる" width="1800" height="1125" fetchpriority="high" decoding="async">
+        </div>
+      </figure>
     </section>
 
-    <!-- 2. 実物の壁 -->
-    <section class="works" id="works">
-      <div class="section-inner">
-        <p class="section-label reveal">WORKS</p>
-        <h2 class="section-title reveal">実物を公開しています</h2>
-        <p class="section-lead reveal">スクショだけでは腕は伝わらないので、作ったものをそのまま置いています。<br class="pc-only">左の2本はリンク先で今すぐ操作できるデモ（登録不要）、kintoneは規約上デモ公開ができないため構築記録の記事で中身を公開しています。</p>
+    <!-- 実績の帯（箱にせず罫線だけ） -->
+    <ul class="stats">
+      <li><strong>デモ 3本</strong><span>実物と構築記録を公開中</span></li>
+      <li><strong>最短 3日</strong><span>相談から納品まで<!-- 根拠＝ココナラ出品4269314「お届け日数 3日（予定）」2026-08-12実測 --></span></li>
+      <li><strong>★ 5.0</strong><span>納品レビュー（2件）</span></li>
+    </ul>
 
-        <div class="works-slider-wrap">
-          <button class="slider-arrow prev" id="sliderPrev" aria-label="前のデモへ">&#8592;</button>
-          <div class="works-slider" id="worksSlider">
-            <article class="work-card reveal">
-              <a href="https://sales-report-app.vercel.app" target="_blank" rel="noopener">
-                <img src="assets/sales-report.png" alt="売上集計＋月次レポート自動化のデモ画面" width="1152" height="648" loading="lazy">
-              </a>
-              <div class="work-body">
-                <h3>売上集計＋月次レポート自動化</h3>
-                <p>CSVを入れると売上ダッシュボードと月次レポートを自動生成。AI要約つき。</p>
-                <a class="work-link" href="https://sales-report-app.vercel.app" target="_blank" rel="noopener">デモを触ってみる →</a>
-              </div>
-            </article>
-            <article class="work-card reveal">
-              <a href="https://process-manager-demo.vercel.app" target="_blank" rel="noopener">
-                <img src="assets/process-manager.png" alt="町工場向け工程管理アプリのデモ画面" width="1152" height="648" loading="lazy">
-              </a>
-              <div class="work-body">
-                <h3>工程管理アプリ（町工場向け）</h3>
-                <p>今日の工程・遅延アラート・機械別稼働率まで1画面で。現場目線のデモ。</p>
-                <a class="work-link" href="https://process-manager-demo.vercel.app" target="_blank" rel="noopener">デモを触ってみる →</a>
-              </div>
-            </article>
-            <article class="work-card reveal">
-              <a href="https://web-fukugyo-hiro.com/kintone-arari-app/" target="_blank" rel="noopener">
-                <img src="assets/kintone-arari.png" alt="kintone粗利管理アプリの画面" width="1152" height="648" loading="lazy">
-              </a>
-              <div class="work-body">
-                <h3>kintone粗利管理アプリ（構築記録）</h3>
-                <p>案件別の粗利が自動で見えるkintoneアプリ。構築の過程を記事で全公開。</p>
-                <a class="work-link" href="https://web-fukugyo-hiro.com/kintone-arari-app/" target="_blank" rel="noopener">構築記録を読む →</a>
-              </div>
-            </article>
-          </div>
-          <button class="slider-arrow next" id="sliderNext" aria-label="次のデモへ">&#8594;</button>
-        </div>
-        <p class="works-note reveal">ほかの制作物は <a href="https://portfolio-site-xi-amber-45.vercel.app" target="_blank" rel="noopener">ポートフォリオサイト</a> にまとめています。</p>
+    <!-- 2. 実物の壁＝1本ずつ大きく見せる（カード3並びをやめる） -->
+    <section class="works" id="works">
+      <div class="inner">
+        <p class="label">WORKS</p>
+        <h2 class="title">実物を公開しています</h2>
+        <p class="lead">スクショだけでは腕は伝わらないので、作ったものをそのまま置いています。上の2本はリンク先で今すぐ操作できるデモ（登録不要）、kintoneは規約上デモ公開ができないため構築記録の記事で中身を公開しています。</p>
       </div>
+
+      <article class="work reveal">
+        <figure class="work-shot">
+          <a href="https://sales-report-app.vercel.app" target="_blank" rel="noopener">
+            <div class="frame">
+              <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><em>月次レポート（自動生成）</em></div>
+              <img src="assets/shots/ui-02-sales-report.webp" alt="売上データから自動生成された月次レポート画面" width="1600" height="1000" loading="lazy" decoding="async">
+            </div>
+          </a>
+        </figure>
+        <div class="work-body">
+          <span class="num">01</span>
+          <h3>売上集計＋月次レポート自動化</h3>
+          <p>CSVを入れると売上ダッシュボードと月次レポートを自動生成。AI要約つき。</p>
+          <a class="work-link" href="https://sales-report-app.vercel.app" target="_blank" rel="noopener">デモを触ってみる →</a>
+        </div>
+      </article>
+
+      <article class="work is-reverse reveal">
+        <figure class="work-shot">
+          <a href="https://process-manager-demo.vercel.app" target="_blank" rel="noopener">
+            <div class="frame">
+              <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><em>工程管理 — 今日の工程</em></div>
+              <img src="assets/shots/ui-03-process.webp" alt="町工場向け工程管理アプリの今日の工程画面。遅延アラートと案件ごとの進捗が並んでいる" width="1600" height="1000" loading="lazy" decoding="async">
+            </div>
+          </a>
+        </figure>
+        <div class="work-body">
+          <span class="num">02</span>
+          <h3>工程管理アプリ（町工場向け）</h3>
+          <p>今日の工程・遅延アラート・機械別稼働率まで1画面で。現場目線のデモ。</p>
+          <a class="work-link" href="https://process-manager-demo.vercel.app" target="_blank" rel="noopener">デモを触ってみる →</a>
+        </div>
+      </article>
+
+      <article class="work reveal">
+        <figure class="work-shot">
+          <a href="https://web-fukugyo-hiro.com/kintone-arari-app/" target="_blank" rel="noopener">
+            <div class="frame">
+              <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><em>kintone — 案件別の粗利</em></div>
+              <img src="assets/shots/ui-05-kintone.webp" alt="kintoneで作った粗利管理アプリの案件詳細画面。粗利サマリが赤字案件として粗利率-8.0%を表示し、原価明細が並んでいる" width="1000" height="940" loading="lazy" decoding="async">
+            </div>
+          </a>
+        </figure>
+        <div class="work-body">
+          <span class="num">03</span>
+          <h3>kintone粗利管理アプリ（構築記録）</h3>
+          <p>案件別の粗利が自動で見えるkintoneアプリ。構築の過程を記事で全公開。</p>
+          <a class="work-link" href="https://web-fukugyo-hiro.com/kintone-arari-app/" target="_blank" rel="noopener">構築記録を読む →</a>
+        </div>
+      </article>
+
+      <p class="inner note">ほかの制作物は <a href="https://portfolio.hirobuilds7.workers.dev" target="_blank" rel="noopener">ポートフォリオサイト</a> にまとめています。</p>
     </section>
 
     <!-- 3. 課題共感 -->
     <section class="pain">
-      <div class="section-inner">
-        <h2 class="section-title reveal">こんな作業、毎月くり返していませんか？</h2>
-        <ul class="pain-list">
-          <li class="reveal"><span class="check" aria-hidden="true">✓</span>売上や勤怠のデータを、毎月手作業でコピペして集計している</li>
-          <li class="reveal"><span class="check" aria-hidden="true">✓</span>シートを作った人が辞めたら、誰も直せない関数がある</li>
-          <li class="reveal"><span class="check" aria-hidden="true">✓</span>報告資料づくりに毎回時間が溶ける。しかも手作業ミスが怖い</li>
-          <li class="reveal"><span class="check" aria-hidden="true">✓</span>「自動化したい」と思いつつ、誰に何を頼めばいいか分からない</li>
-        </ul>
-        <p class="pain-close reveal">そのくり返し、仕組みにすれば毎月の作業は「ボタンを押して結果を確認するだけ」になります。</p>
-        <div class="cta-mid reveal">
-          <a href="https://coconala.com/services/4269314" class="btn btn-primary btn-large" target="_blank" rel="noopener">うちの場合どうなるか聞いてみる</a>
+      <div class="split">
+        <div class="split-body reveal">
+          <h2 class="title">こんな作業、<br>毎月くり返していませんか？</h2>
+          <ul class="rule-list">
+            <li>売上や勤怠のデータを、毎月手作業でコピペして集計している</li>
+            <li>シートを作った人が辞めたら、誰も直せない関数がある</li>
+            <li>報告資料づくりに毎回時間が溶ける。しかも手作業ミスが怖い</li>
+            <li>「自動化したい」と思いつつ、誰に何を頼めばいいか分からない</li>
+          </ul>
+          <p class="lead">そのくり返し、仕組みにすれば毎月の作業は<em>「ボタンを押して結果を確認するだけ」</em>になります。</p>
+          <a href="https://coconala.com/services/4269314" class="btn btn-light" target="_blank" rel="noopener">うちの場合どうなるか聞いてみる</a>
         </div>
+        <figure class="split-media reveal">
+          <div class="frame">
+            <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><em>商品別売上とAI要約</em></div>
+            <img src="assets/shots/ui-06-sales-detail.webp" alt="商品別売上のランキングとAIによる要約コメントが表示されている画面" width="1600" height="1000" loading="lazy" decoding="async">
+          </div>
+        </figure>
       </div>
     </section>
 
     <!-- 4. できること＋流れ -->
     <section class="service" id="service">
-      <div class="section-inner">
-        <p class="section-label reveal">SERVICE</p>
-        <h2 class="section-title reveal">できること</h2>
-        <div class="bento">
-          <article class="bento-card reveal">
+      <div class="inner">
+        <p class="label">SERVICE</p>
+        <h2 class="title">できること</h2>
+        <div class="cards">
+          <article class="reveal">
             <h3>集計・転記の自動化</h3>
             <p>Excel関数・GAS・Pythonで、複数ファイルの集計や台帳への転記を自動化。手作業とミスをまとめて減らします。</p>
           </article>
-          <article class="bento-card reveal">
+          <article class="reveal">
             <h3>レポートの自動生成</h3>
             <p>CSVや売上データから月次レポートを自動生成。AIによる要約コメントまで込みで「報告できる形」にします。</p>
           </article>
-          <article class="bento-card reveal">
+          <article class="reveal">
             <h3>定期実行・通知</h3>
             <p>毎朝の実行・結果のメール/チャット通知まで設定して、「回し続けられる仕組み」として納品します。</p>
           </article>
         </div>
+      </div>
 
-        <h2 class="section-title reveal" id="flow">依頼の流れ</h2>
+      <figure class="band reveal">
+        <div class="frame">
+          <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><em>工程管理 — ダッシュボード</em></div>
+          <img src="assets/shots/ui-07-process-dash.webp" alt="工程管理アプリのダッシュボード画面。機械別の稼働率などが集計されている" width="1600" height="1000" loading="lazy" decoding="async">
+        </div>
+      </figure>
+
+      <div class="inner">
+        <h2 class="title" id="flow">依頼の流れ</h2>
         <ol class="flow">
-          <li class="reveal"><span class="flow-num">1</span><h3>無料相談</h3><p>今の作業内容をテキストで教えてください。ヒアリングシートも用意しています。</p></li>
-          <li class="reveal"><span class="flow-num">2</span><h3>お見積り</h3><p>やること・やらないこと・金額・納期を先に明文化します。着手後の追加請求はしません。</p></li>
-          <li class="reveal"><span class="flow-num">3</span><h3>試作を確認</h3><p>途中経過を実際に触って確認いただき、ズレをその場で直します。</p></li>
-          <li class="reveal"><span class="flow-num">4</span><h3>納品・サポート</h3><p>使い方の説明書つきで納品。納品後の質問にも対応します。</p></li>
+          <li class="reveal"><span class="num">1</span><h3>無料相談</h3><p>今の作業内容をテキストで教えてください。ヒアリングシートも用意しています。</p></li>
+          <li class="reveal"><span class="num">2</span><h3>お見積り</h3><p>やること・やらないこと・金額・納期を先に明文化します。着手後の追加請求はしません。</p></li>
+          <li class="reveal"><span class="num">3</span><h3>試作を確認</h3><p>途中経過を実際に触って確認いただき、ズレをその場で直します。</p></li>
+          <li class="reveal"><span class="num">4</span><h3>納品・サポート</h3><p>使い方の説明書つきで納品。納品後の質問にも対応します。</p></li>
         </ol>
       </div>
     </section>
 
     <!-- 5. 制作者＋正直ゾーン -->
     <section class="about">
-      <div class="section-inner">
-        <p class="section-label reveal">ABOUT</p>
-        <h2 class="section-title reveal">作っている人</h2>
+      <div class="inner">
+        <p class="label">ABOUT</p>
+        <h2 class="title">作っている人</h2>
         <div class="about-grid">
           <div class="about-text reveal">
             <p><strong>Hiro（HiroBuilds）</strong>／元・町工場の現場出身。工作機械のプログラミングで「機械に仕事をさせる」感覚を覚え、いまはExcel・スプレッドシート・Webの自動化ツールを作っています。</p>
@@ -250,43 +252,54 @@
 
     <!-- 6. FAQ＋クロージング -->
     <section class="faq" id="faq">
-      <div class="section-inner">
-        <p class="section-label reveal">FAQ</p>
-        <h2 class="section-title reveal">よくある質問</h2>
-        <div class="faq-list">
-          <details class="faq-item reveal">
-            <summary>料金はどのくらいですか？</summary>
-            <p>内容によって変わるため、まず無料相談で作業内容を伺ってからお見積りします。「やること・やらないこと・金額」を先に明文化し、着手後の追加請求はしません。費用感だけ知りたい段階のご相談も歓迎です。</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>ITにくわしくなくても頼めますか？</summary>
-            <p>大丈夫です。今やっている作業を普段の言葉で教えていただければ、こちらで要件に翻訳します。納品時は使い方の説明書もお付けします。</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>データを渡すのが不安です</summary>
-            <p>機密情報はマスキングやサンプルデータでの開発に対応します。実データが不要な工程では預かりません。</p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>納品後に動かなくなったら？</summary>
-            <p>納品後の質問・不具合対応の窓口を残します。継続的な保守やちょっとした改修のご相談も可能です。</p>
-          </details>
+      <div class="faq-inner">
+        <div class="faq-side">
+          <p class="label">FAQ</p>
+          <h2 class="title">よくある質問</h2>
+          <figure class="reveal">
+            <div class="frame">
+              <div class="frame-bar" aria-hidden="true"><span></span><span></span><span></span><em>工程管理 — 案件の詳細</em></div>
+              <img src="assets/shots/ui-04-process-b.webp" alt="工程管理アプリで案件ごとの工程を展開した画面" width="1600" height="1000" loading="lazy" decoding="async">
+            </div>
+          </figure>
         </div>
-        <div class="closing reveal">
-          <h2 class="closing-catch">まずは「今の作業内容」を<br class="sp-only">教えてください</h2>
-          <p>相談は無料です。自動化できるか分からない段階でも、できる/できないを正直にお答えします。</p>
-          <a href="https://coconala.com/services/4269314" class="btn btn-primary btn-large" target="_blank" rel="noopener">無料で相談してみる</a>
-          <p class="cta-note">※ご相談の窓口はココナラ（会員登録無料）です。</p>
+        <div class="faq-body">
+          <div class="faq-list">
+            <details class="reveal">
+              <summary>料金はどのくらいですか？</summary>
+              <p>内容によって変わるため、まず無料相談で作業内容を伺ってからお見積りします。「やること・やらないこと・金額」を先に明文化し、着手後の追加請求はしません。費用感だけ知りたい段階のご相談も歓迎です。</p>
+            </details>
+            <details class="reveal">
+              <summary>ITにくわしくなくても頼めますか？</summary>
+              <p>大丈夫です。今やっている作業を普段の言葉で教えていただければ、こちらで要件に翻訳します。納品時は使い方の説明書もお付けします。</p>
+            </details>
+            <details class="reveal">
+              <summary>データを渡すのが不安です</summary>
+              <p>機密情報はマスキングやサンプルデータでの開発に対応します。実データが不要な工程では預かりません。</p>
+            </details>
+            <details class="reveal">
+              <summary>納品後に動かなくなったら？</summary>
+              <p>納品後の質問・不具合対応の窓口を残します。継続的な保守やちょっとした改修のご相談も可能です。</p>
+            </details>
+          </div>
         </div>
+      </div>
+
+      <div class="closing reveal">
+        <h2 class="closing-catch">まずは「今の作業内容」を<br class="sp-only">教えてください</h2>
+        <p>相談は無料です。自動化できるか分からない段階でも、できる/できないを正直にお答えします。</p>
+        <a href="https://coconala.com/services/4269314" class="btn btn-light btn-large" target="_blank" rel="noopener">無料で相談してみる</a>
+        <p class="cta-note">※ご相談の窓口はココナラ（会員登録無料）です。</p>
       </div>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="brand">HiroBuilds</p>
+    <div class="inner">
+      <p class="foot-brand">HiroBuilds</p>
       <nav aria-label="関連リンク">
-        <a href="https://portfolio-site-xi-amber-45.vercel.app" target="_blank" rel="noopener">ポートフォリオ</a>
+        <a href="https://portfolio.hirobuilds7.workers.dev" target="_blank" rel="noopener">ポートフォリオ</a>
         <a href="https://web-fukugyo-hiro.com" target="_blank" rel="noopener">ブログ</a>
       </nav>
       <p class="copyright">&copy; 2026 HiroBuilds — web-fukugyo-hiro.com</p>

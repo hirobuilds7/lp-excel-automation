@@ -4,6 +4,10 @@
 	// リポ直下を assets.directory にするのは禁止（gitignore済みの内部ファイルが同居しとるため）。
 	"name": "lp-excel-automation",
 	"compatibility_date": "2026-08-16",
+	// 🔴 バージョンごとの Preview URL を出さん（2026-08-25 段階②）
+	//   既定は有効＝<hash>-<name>.workers.dev が生えて、本番と同じ中身が別URLで検索に拾われうる。
+	//   LP1とPFサイトは noindex を外した本物の面やから、増える口は先に閉じる。
+	"preview_urls": false,
 	"assets": {
 		"directory": "./dist"
 	}
